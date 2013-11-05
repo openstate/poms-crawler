@@ -21,9 +21,9 @@ def main():
     for row in db.view('media/broadcasts-by-channel-and-start', reduce=False, include_docs=True, limit=10):
         doc_id = row.id
         doc = db[doc_id]
-        for key in doc:
-            print "%s :" % (key,)
-            pprint(doc[key])
+        #for key in doc:
+        #    print "%s :" % (key,)
+        json.dumps(doc)
 
 if __name__ == '__main__':
     main()
