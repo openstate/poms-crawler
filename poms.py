@@ -19,7 +19,7 @@ import couchdb
 
 def main():
     server = couchdb.Server('http://hackathon-api.omroep.nl/')
-    db = server['poms']
+    db = server['media']
     skip = 0
     step = 1000
     should_continue = True
@@ -29,8 +29,8 @@ def main():
         )
         print len(results)
         for row in results:
-            doc = db[row.id]
-            file_name = "info/%s.json" % (doc['mid'],)
+            doc = row #db[row.id]
+            file_name = "info/%s.json" % (row.id,)
             if os.path.exists(file_name):
                 continue
 
