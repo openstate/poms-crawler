@@ -20,6 +20,8 @@ import couchdb
 def main():
     server = couchdb.Server('http://hackathon-api.omroep.nl/')
     db = server['media']
+    if not os.path.exists('info'):
+        os.makedirs('info')
     skip = 0
     step = 1000
     should_continue = True
